@@ -1,0 +1,9 @@
+version: "2"
+sql:
+  - schema: "db/migrations" 
+    queries: "db/queries" 
+    engine: "postgresql"
+    gen:
+      go:
+        out: "db/dbstore"
+        emit_json_tags: true

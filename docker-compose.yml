@@ -1,0 +1,52 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: lib-db
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mylibdb:/var/lib/postgres
+    networks:
+      - restapi
+    user: postgres
+    healthcheck: #bununla diğerlerinin db yi beklemesi sağlanır. Sırayla çalışabilmelerini sağlar
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"] 
+      interval: 5s
+      timeout: 60s
+      retries: 10
+      start_period: 5s
+
+  api:
+    container_name: libraryapi
+    build:
+      context:  .
+      dockerfile: Dockerfile
+    ports: 
+      - 3000:3000
+    restart: always
+    depends_on: 
+      - migration
+    networks:
+      - restapi
+
+  migration:
+    image: ghcr.io/kukymbr/goose-docker:3.15.1
+    env_file:
+      - .env
+    depends_on:
+      db:
+       condition: 'service_healthy'
+    volumes:
+      - ./db/migrations/:/migrations
+    networks:
+      - restapi
+      
+volumes:
+  mylibdb:
+    
+networks:
+  restapi:
+    driver: bridge

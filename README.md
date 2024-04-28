@@ -6,7 +6,7 @@ This API is designed for library systems. There are User,Book and Borrow endpoin
 Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing this API.
 
 ### Contents
-
+* [Installation & Deployment](#installation--deployment)
 * [Log into accounts](#log-into-accounts)
 * [Users](#users)
 	* [Get Users](#get-users)
@@ -25,6 +25,18 @@ Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing th
     * [Return Borrowed Book](#return-borrowed-book)
     * [Borrow Book](#borrow-book)
     * [Get Return History](#get-return-history)
+ 
+* ### Installation & Deployment
+
+    1. Clone the repo
+       
+            git clone https://github.com/melikesenacakir/GoLibraryAPI.git
+    3. Go to this file
+       
+            cd GoLibraryAPI
+    4. Run the system in your terminal
+       
+           docker-compose up
 
 ### **Log Into Accounts**
 

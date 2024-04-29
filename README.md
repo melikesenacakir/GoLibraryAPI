@@ -3,7 +3,7 @@
 
 This API is designed for library systems. There are User,Book and Borrow endpoints. 
 
-Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing this API.
+Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing this API. Also Clean architecture has been used.
 
 ### Contents
 * [Installation & Deployment](#installation--deployment)
@@ -50,6 +50,14 @@ Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing th
 | `role` | `string` | Enter role(admin/user) |
 | `username` | `string` |  Enter username |
 | `password` | `string` | Enter password |
+
+-Default Admin Login Informations: 
+
+          {
+		 "role":"admin",
+		 "username":"admin121",
+		 "password":"123456"
+          }
 
 
 #### Response STATUS 200:OK

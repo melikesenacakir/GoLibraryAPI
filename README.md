@@ -263,7 +263,7 @@ Fiber framework, Goose, POSTGRESQL DB, SQLC and Docker was used by developing th
 ### **Update Book**
 
 ```http
-  DELETE /api/v1/book/update/id
+  PUT /api/v1/book/update/id
 ```
 **Required:**
 
